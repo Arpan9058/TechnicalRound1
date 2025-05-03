@@ -1,0 +1,20 @@
+name: prepto
+defaultService: projects/rare-theater-420307/global/backendServices/prepto
+hostRules:
+- hosts:
+  - "prepto-459896721442.asia-south2.run.app"
+  pathMatcher: path-matcher-1
+pathMatchers:
+- name: path-matcher-1
+  defaultService: projects/rare-theater-420307/global/backendServices/prepto
+  pathRules:
+  - paths:
+    - /technical
+    - /technical/*
+    routeAction:
+      urlRewrite:
+        pathPrefixRewrite: /
+    service: projects/rare-theater-420307/global/backendServices/technical
+  - paths:
+    - /*
+    service: projects/rare-theater-420307/global/backendServices/prepto
